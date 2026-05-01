@@ -1,36 +1,72 @@
-"use client"
-import React, { useState } from 'react';
-import { Button, Modal } from 'antd';
-import Image from "next/image";
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 
-const SalesAdmin = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const showModal = () => {
-        setIsModalOpen(true);
-    };
-    const handleOk = () => {
-        setIsModalOpen(false);
-    };
-    const handleCancel = () => {
-        setIsModalOpen(false);
-    };
+const categories = [
+    {
+        name: 'Events',
+        posts: [
+            {
+                id: 1,
+                clientname: 'John Doe',
+                date: '23/may/2026',
+                eventtype: "Wedding",
+                venue: "PS grarden",
+                status: "Booked",
+            },
+            {
+                id: 2,
+                clientname: 'Jane Smith',
+                date: '24/may/2026',
+                eventtype: "Birthday",
+                venue: "KTVS",
+                status: "Pending",
+            },
+        ],
+    },
+]
+const categories2 = [
+    {
+        name: 'Managers',
+        posts: [
+            {
+                id: 1,
+                name: 'Jane Doe',
+                email: 'jan@doe.com',
+                role: 'Manager',
+            },
+            {
+                id: 2,
+                name: 'John Smith',
+                email: 'john@smith.com',
+                role: 'Sales Associate',
+            },
+        ],
+    },
+]
+
+export default function Example() {
     return (
-        <div>
-            <div className='w-full h-25 bg-[#cf5b5b] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-size-[20px_20px] text-white flex items-center justify-center'>
-                <h1 className='text-3xl font-bold'>Welcome to Sales Admin Dashboard</h1>
+        <>
+            <div className="flex h-16 w-full items-center justify-center bg-[#0a0027] text-white">
+                <h1 className='text-3xl font-bold'>Sales Admin Dashboard</h1>
             </div>
             <div className="flex h-screen w-full justify-center px-4 pt-2">
                 <div className="w-full">
                     <TabGroup>
                         <TabList className="flex gap-4 items-center justify-center">
-                            {categories.map(({ name }) => (
+                            
                                 <Tab
-                                    key={name}
+                                    
                                     className="rounded-full px-4 py-2 text-2xl font-semibold text-white focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-white/5 data-selected:bg-white/10 data-selected:data-hover:bg-white/10"
                                 >
-                                    {name}
+                                    Events
                                 </Tab>
-                            ))}
+                                <Tab
+                                    
+                                    className="rounded-full px-4 py-2 text-2xl font-semibold text-white focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-white/5 data-selected:bg-white/10 data-selected:data-hover:bg-white/10"
+                                >
+                                    Managers
+                                </Tab>
+                           
                         </TabList>
                         <TabPanels className="mt-3">
                             {categories.map(({ name, posts }) => (
@@ -54,7 +90,7 @@ const SalesAdmin = () => {
                                     </ul>
                                 </TabPanel>
                             ))}
-                            {categories.map(({ name, posts }) => (
+                            {categories2.map(({ name, posts }) => (
                                 <TabPanel key={name} className="rounded-xl bg-white/5 p-3">
                                     <ul>
                                         {posts.map((post) => (
@@ -77,8 +113,6 @@ const SalesAdmin = () => {
                     </TabGroup>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
-
-export default SalesAdmin

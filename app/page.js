@@ -1,8 +1,11 @@
 import Link from 'next/link'
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <div className="flex flex-col flex-1 items-center justify-center">
+      <Navbar />
       <div className="h-screen w-12/12 bg-amber-600 flex items-center justify-center">
         <h1 className="text-4xl font-bold text-amber-200">CRM Manager</h1>
       </div>
@@ -27,6 +30,7 @@ export default function Home() {
         </button>
         </Link>
       </div>
+      <Footer />
     </div>
   );
 }
