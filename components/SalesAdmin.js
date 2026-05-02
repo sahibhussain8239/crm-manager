@@ -1,28 +1,7 @@
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
+import React from 'react'
+import Image from 'next/image'
 
-const categories = [
-    {
-        name: 'Events',
-        posts: [
-            {
-                id: 1,
-                clientname: 'John Doe',
-                date: '23/may/2026',
-                eventtype: "Wedding",
-                venue: "PS grarden",
-                status: "Booked",
-            },
-            {
-                id: 2,
-                clientname: 'Jane Smith',
-                date: '24/may/2026',
-                eventtype: "Birthday",
-                venue: "KTVS",
-                status: "Pending",
-            },
-        ],
-    },
-]
 const categories2 = [
     {
         name: 'Managers',
@@ -30,14 +9,16 @@ const categories2 = [
             {
                 id: 1,
                 name: 'Jane Doe',
-                email: 'jan@doe.com',
-                role: 'Manager',
+                eventType: 'Wedding',
+                date: '01/june/2026',
+                location: 'PS Garden',
             },
             {
                 id: 2,
                 name: 'John Smith',
-                email: 'john@smith.com',
-                role: 'Sales Associate',
+                eventType: 'Haldi',
+                date: '01/july/2026',
+                location: 'kTVS',
             },
         ],
     },
@@ -53,43 +34,39 @@ export default function Example() {
                 <div className="w-full">
                     <TabGroup>
                         <TabList className="flex gap-4 items-center justify-center">
-                            
-                                <Tab
-                                    
-                                    className="rounded-full px-4 py-2 text-2xl font-semibold text-white focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-white/5 data-selected:bg-white/10 data-selected:data-hover:bg-white/10"
-                                >
-                                    Events
-                                </Tab>
-                                <Tab
-                                    
-                                    className="rounded-full px-4 py-2 text-2xl font-semibold text-white focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-white/5 data-selected:bg-white/10 data-selected:data-hover:bg-white/10"
-                                >
-                                    Managers
-                                </Tab>
-                           
+
+                            <Tab
+
+                                className="rounded-full px-4 py-2 text-2xl font-semibold text-white focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-white/5 data-selected:bg-white/10 data-selected:data-hover:bg-white/10"
+                            >
+                                Add an Event
+                            </Tab>
+                            <Tab
+
+                                className="rounded-full px-4 py-2 text-2xl font-semibold text-white focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-white/5 data-selected:bg-white/10 data-selected:data-hover:bg-white/10"
+                            >
+                                View and manage Events
+                            </Tab>
+                            <Tab
+
+                                className="rounded-full px-4 py-2 text-2xl font-semibold text-white focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-white/5 data-selected:bg-white/10 data-selected:data-hover:bg-white/10"
+                            >
+                                Add Manager
+                            </Tab>
+
                         </TabList>
                         <TabPanels className="mt-3">
-                            {categories.map(({ name, posts }) => (
-                                <TabPanel key={name} className="rounded-xl bg-white/5 p-3">
-                                    <ul>
-                                        {posts.map((post) => (
-                                            <li key={post.id} className="relative rounded-md p-3 text-sm/6 transition hover:bg-white/5">
-                                                <a href="#" className="font-semibold text-white">
-                                                    <span className="absolute inset-0" />
-                                                    {post.eventtype} - {post.clientname}
-                                                </a>
-                                                <ul className="flex gap-2 text-white/50" aria-hidden="true">
-                                                    <li>{post.date}</li>
-                                                    <li aria-hidden="true">&middot;</li>
-                                                    <li>{post.venue} </li>
-                                                    <li aria-hidden="true">&middot;</li>
-                                                    <li>{post.status}</li>
-                                                </ul>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </TabPanel>
-                            ))}
+                            <TabPanel className="rounded-xl bg-white/5 p-3">
+                                <div>
+                                    <form>
+                                        <input type="text" placeholder='Client Name' className='w-full rounded-md border-0 bg-white/5 px-3 py-2 text-sm text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white focus-visible:outline-none focus-visible:ring-white data-invalid:ring-rose-500 sm:leading-6 mb-4' />
+                                        <input type="text" placeholder='Event Type' className='w-full rounded-md border-0 bg-white/5 px-3 py-2 text-sm text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white focus-visible:outline-none focus-visible:ring-white data-invalid:ring-rose-500 sm:leading-6 mb-4' />
+                                        <input type="text" placeholder='Event Date' className='w-full rounded-md border-0 bg-white/5 px-3 py-2 text-sm text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white focus-visible:outline-none focus-visible:ring-white data-invalid:ring-rose-500 sm:leading-6 mb-4' />
+                                        <input type="text" placeholder='Event Location' className='w-full rounded-md border-0 bg-white/5 px-3 py-2 text-sm text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white focus-visible:outline-none focus-visible:ring-white data-invalid:ring-rose-500 sm:leading-6 mb-4' />
+                                        <button type="submit" className='w-full rounded-md bg-white/10 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-white/20 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-white'>Add Event</button>
+                                    </form>
+                                </div>
+                            </TabPanel>
                             {categories2.map(({ name, posts }) => (
                                 <TabPanel key={name} className="rounded-xl bg-white/5 p-3">
                                     <ul>
@@ -100,15 +77,29 @@ export default function Example() {
                                                     {post.name}
                                                 </a>
                                                 <ul className="flex gap-2 text-white/50" aria-hidden="true">
-                                                    <li>{post.email}</li>
+                                                    <li>{post.eventType}</li>
+                                                    
                                                     <li aria-hidden="true">&middot;</li>
-                                                    <li>{post.role}</li>
+                                                    <li>{post.date}</li>
+                                                    <li aria-hidden="true">&middot;</li>
+                                                    <li>{post.location}</li>
+                                                    <li><span><Image src="/assign.svg" alt="Event Image" width={50} height={50} /></span></li>
                                                 </ul>
                                             </li>
                                         ))}
                                     </ul>
                                 </TabPanel>
                             ))}
+                            <TabPanel className="rounded-xl bg-white/5 p-3">
+                                <div>
+                                    <form>
+                                        <input type="text" placeholder='Manager Name' className='w-full rounded-md border-0 bg-white/5 px-3 py-2 text-sm text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white focus-visible:outline-none focus-visible:ring-white data-invalid:ring-rose-500 sm:leading-6 mb-4' />
+                                        <input type="text" placeholder='Manager Email' className='w-full rounded-md border-0 bg-white/5 px-3 py-2 text-sm text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white focus-visible:outline-none focus-visible:ring-white data-invalid:ring-rose-500 sm:leading-6 mb-4' />
+                                        <input type="text" placeholder='Manager Role' className='w-full rounded-md border-0 bg-white/5 px-3 py-2 text-sm text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white focus-visible:outline-none focus-visible:ring-white data-invalid:ring-rose-500 sm:leading-6 mb-4' />
+                                        <button type="submit" className='w-full rounded-md bg-white/10 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-white/20 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-white'>Add Event</button>
+                                    </form>
+                                </div>
+                            </TabPanel>
                         </TabPanels>
                     </TabGroup>
                 </div>
