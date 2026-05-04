@@ -24,7 +24,7 @@ const categories2 = [
     },
 ]
 
-export default function Example() {
+export default function SalesAmin() {
     return (
         <>
             <div className="flex h-16 w-full items-center justify-center bg-[#0a0027] text-white">

@@ -7,7 +7,6 @@ const eventSchema = new mongoose.Schema({
     eventType: {type: String, required: true},
     status: "booked" | "assigned" | "in_progress" | "completed",
     venues: {type: String},
-    credId: {type: mongoose.Schema.Types.ObjectId, ref: 'Management'},
 });
 
 const Event = mongoose.models.Event || mongoose.model('Event', eventSchema);
