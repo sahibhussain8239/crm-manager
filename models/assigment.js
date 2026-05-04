@@ -2,13 +2,19 @@ import mongoose from "mongoose";
 
 const assignmentSchema = new mongoose.Schema({
     eventId: {type: mongoose.Schema.Types.ObjectId, ref: 'Event', required: true},
-    crewId: {type: mongoose.Schema.Types.ObjectId, ref: 'Team', required: true},
+    userId: {type: mongoose.Schema.Types.ObjectId, ref: 'Team', required: true},
     assignedAt: {type: Date, default: Date.now},
-    role: "photographer" | "videographer" | "planner" | "decorator" | "caterer",
+    role: {type: String, required: true},
     function: {type: String, required: true},
-    status: "assigned" | "in_progress" | "completed",
-    eventDate: {type:mongoose.Schema.Types.Date, ref:'Event',required: true},
-});
+    status: {
+        type: String,
+        enum: ['assigned', 'started', 'in_progress', 'completed'],
+        default: 'assigned'
+    },
+    eventDate: {type: Date, required: true},
+    time: {type: String, required: true},
+    venue: {type: String, required: true},    
+}, { timestamps: true });
 
 const Assignment = mongoose.models.Assignment || mongoose.model('Assignment', assignmentSchema);
 export default Assignment;
