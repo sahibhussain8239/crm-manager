@@ -1,36 +1,40 @@
-import Link from 'next/link'
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center">
-      <Navbar />
-      <div className="h-screen w-12/12 bg-amber-600 flex items-center justify-center">
-        <h1 className="text-4xl font-bold text-amber-200">CRM Manager</h1>
-      </div>
-      <div className="h-svh w-12/12 text-center flex items-center justify-center bg-fuchsia-400">
-        <p className="text-lg">
-          Welcome to CRM Manager, your all-in-one solution for managing customer relationships effectively. Our platform offers a comprehensive suite of tools designed to help you streamline your sales, marketing, and customer support processes. With CRM Manager, you can easily track leads, manage contacts, automate workflows, and gain valuable insights into your customer interactions. Whether you're a small business or a large enterprise, CRM Manager is here to help you build stronger relationships with your customers and drive business growth.
+    <div className="flex flex-col items-center justify-center min-h-screen p-8 text-center relative z-10">
+      <div className="max-w-3xl space-y-8">
+        <h1 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-indigo-500 animate-pulse">
+          EventFlow CRM
+        </h1>
+        <p className="text-xl md:text-2xl text-gray-300 font-light max-w-2xl mx-auto leading-relaxed">
+          The ultimate SaaS platform for managing events, organizing your crew, and delivering unforgettable experiences.
         </p>
+        
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12 pt-8 border-t border-white/10">
+          <Link href="/register" className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white font-bold rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+            Create Organization
+          </Link>
+          <Link href="/login" className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-[0_0_30px_rgba(124,58,237,0.3)]">
+            Member Login
+          </Link>
+        </div>
       </div>
-      <div className="h-svh w-12/12 text-center flex items-center justify-center bg-cyan-500 gap-4 flex-col">
-        <h1>Make your Oraganization Here</h1>
-        <Link rel="stylesheet" href="/registration" >
-        <button className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded">
-          Register
-        </button>
-        </Link>
+      
+      <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl w-full">
+        <div className="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/5">
+          <h3 className="text-xl font-bold text-white mb-2">For Sales Admins</h3>
+          <p className="text-gray-400">Easily manage bookings and create event requests.</p>
+        </div>
+        <div className="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/5">
+          <h3 className="text-xl font-bold text-white mb-2">For Managers</h3>
+          <p className="text-gray-400">Assemble your crew and delegate tasks seamlessly.</p>
+        </div>
+        <div className="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/5">
+          <h3 className="text-xl font-bold text-white mb-2">For the Crew</h3>
+          <p className="text-gray-400">Get real-time updates and track your assignments.</p>
+        </div>
       </div>
-      <div className="h-svh w-12/12 text-center flex items-center justify-center bg-cyan-500 gap-4 flex-col">
-        <h1>Login to An Organization</h1>
-        <Link rel="stylesheet" href="/login" >
-        <button className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded">
-          Login
-        </button>
-        </Link>
-      </div>
-      <Footer />
     </div>
   );
 }
