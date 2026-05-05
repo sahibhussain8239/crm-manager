@@ -177,11 +177,7 @@ export default function ManagerDashboard() {
                 </div>
                 <div>
                   <h2 className="text-xl font-semibold mb-4 text-white">Team Members</h2>
-<<<<<<< HEAD
                   <div className="space-y-3 max-h-100 overflow-y-auto pr-2">
-=======
-                  <div className="space-y-3 max-h-[400px] overflow-y-auto pr-2">
->>>>>>> d5779b86ea80580a638e769fe0b9778f3f471a81
                     {teamMembers.length === 0 ? <p className="text-gray-400">No members found.</p> : teamMembers.map(member => (
                       <div key={member._id} className="p-4 bg-black/40 rounded-lg border border-white/10 flex items-center justify-between">
                         <div>
@@ -231,11 +227,7 @@ export default function ManagerDashboard() {
                 </div>
                 <div>
                   <h2 className="text-xl font-semibold mb-4 text-white">Current Assignments</h2>
-<<<<<<< HEAD
                   <div className="space-y-3 max-h-125 overflow-y-auto pr-2">
-=======
-                  <div className="space-y-3 max-h-[500px] overflow-y-auto pr-2">
->>>>>>> d5779b86ea80580a638e769fe0b9778f3f471a81
                     {assignments.length === 0 ? <p className="text-gray-400">No assignments created.</p> : assignments.map(assign => (
                       <div key={assign._id} className={`p-4 bg-black/40 rounded-lg border border-white/10 transition-opacity duration-500 ${assign.status === 'completed' ? 'opacity-50 grayscale' : ''}`}>
                         <div className="flex justify-between">
